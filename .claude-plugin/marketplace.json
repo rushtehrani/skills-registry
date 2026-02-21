@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A curated registry of reusable Claude Code skills for software development teams and agents.",
-    "version": "1.0.0"
+    "version": "0.1.0"
   },
   "plugins": [
     {

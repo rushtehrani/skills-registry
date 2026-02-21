@@ -1,9 +1,9 @@
 {
-  "$schema": "https://agentskills.io/registry-schema/v1",
+  "owner": "rushtehrani",
+  "repo": "skills-registry",
   "name": "skills-registry",
   "version": "1.0.0",
   "description": "A curated registry of reusable Claude Code skills for software development teams and agents.",
-  "homepage": "https://github.com/rushtehrani/skills-registry",
   "license": "MIT",
   "skills": [
     {

@@ -4,7 +4,7 @@ description: Audit code or a repository for security vulnerabilities. Use when a
 argument-hint: [file-path or module-name]
 context: fork
 agent: Explore
-allowed-tools: Read, Glob, Grep, Bash(npm audit), Bash(pip-audit), Bash(gh *)
+allowed-tools: Read, Glob, Grep, Bash(npm *), Bash(pip-audit*), Bash(gh *)
 ---
 
 # Security Audit: $ARGUMENTS

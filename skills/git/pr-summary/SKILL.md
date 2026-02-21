@@ -4,17 +4,21 @@ description: Summarize a pull request for reviewers or for writing a PR descript
 argument-hint: [pr-number]
 context: fork
 agent: Explore
-allowed-tools: Read, Grep, Glob, Bash(gh *), Bash(git *)
+allowed-tools: Read, Grep, Glob, Bash(gh *)
 ---
 
 # Summarize Pull Request $ARGUMENTS
 
-## Context Gathering
+## Step 1: Gather PR Context
 
-!`gh pr view $ARGUMENTS`
-!`gh pr diff $ARGUMENTS`
-!`gh pr view $ARGUMENTS --comments`
-!`gh pr diff $ARGUMENTS --name-only`
+Run each of these commands to collect full context for PR #$ARGUMENTS:
+
+```bash
+gh pr view $ARGUMENTS
+gh pr diff $ARGUMENTS
+gh pr view $ARGUMENTS --comments
+gh pr diff $ARGUMENTS --name-only
+```
 
 ---
 

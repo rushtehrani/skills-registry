@@ -27,7 +27,7 @@ context: fork
 agent: Explore
 
 # Restrict tools to what this isolated task actually needs:
-allowed-tools: Read, Glob, Grep, Bash(git log), Bash(git diff)
+allowed-tools: Read, Glob, Grep, Bash(git *)
 ---
 
 # [Isolated Task Name]

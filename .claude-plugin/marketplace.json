@@ -1,141 +1,54 @@
 {
-  "owner": "rushtehrani",
-  "repo": "skills-registry",
   "name": "skills-registry",
-  "version": "1.0.0",
-  "description": "A curated registry of reusable Claude Code skills for software development teams and agents.",
-  "license": "MIT",
-  "skills": [
-    {
-      "name": "fix-issue",
-      "path": "skills/development/fix-issue/SKILL.md",
-      "category": "development",
-      "description": "Fix a GitHub issue end-to-end with code changes, tests, and a commit.",
-      "tags": ["github", "issues", "bugfix", "development"],
-      "invocation": "user-only",
-      "arguments": "[issue-number]",
-      "pattern": "task"
-    },
-    {
-      "name": "code-review",
-      "path": "skills/development/code-review/SKILL.md",
-      "category": "development",
-      "description": "Perform a thorough code review checking correctness, security, performance, and style.",
-      "tags": ["review", "quality", "security", "pr"],
-      "invocation": "both",
-      "arguments": "[pr-number or file-path]",
-      "pattern": "task"
-    },
-    {
-      "name": "write-tests",
-      "path": "skills/development/write-tests/SKILL.md",
-      "category": "development",
-      "description": "Generate comprehensive tests for existing code covering happy paths, edge cases, and error conditions.",
-      "tags": ["testing", "unit-tests", "coverage", "quality"],
-      "invocation": "both",
-      "arguments": "[file-path or function-name]",
-      "pattern": "task"
-    },
-    {
-      "name": "commit",
-      "path": "skills/git/commit/SKILL.md",
-      "category": "git",
-      "description": "Create a well-structured git commit following conventional commits specification.",
-      "tags": ["git", "commit", "conventional-commits"],
-      "invocation": "user-only",
-      "arguments": null,
-      "pattern": "task"
-    },
-    {
-      "name": "pr-summary",
-      "path": "skills/git/pr-summary/SKILL.md",
-      "category": "git",
-      "description": "Summarize a pull request for reviewers or for writing a PR description.",
-      "tags": ["git", "github", "pr", "summary"],
-      "invocation": "both",
-      "arguments": "[pr-number]",
-      "pattern": "isolation"
-    },
-    {
-      "name": "explain-code",
-      "path": "skills/documentation/explain-code/SKILL.md",
-      "category": "documentation",
-      "description": "Explain how code works using analogies, ASCII diagrams, and step-by-step walkthroughs.",
-      "tags": ["documentation", "explanation", "learning", "onboarding"],
-      "invocation": "both",
-      "arguments": "[file-path or function-name]",
-      "pattern": "reference"
-    },
-    {
-      "name": "generate-docs",
-      "path": "skills/documentation/generate-docs/SKILL.md",
-      "category": "documentation",
-      "description": "Generate documentation: docstrings, API docs, README sections, or architecture docs.",
-      "tags": ["documentation", "docstrings", "api-docs", "readme"],
-      "invocation": "both",
-      "arguments": "[file-path or module-name]",
-      "pattern": "task"
-    },
-    {
-      "name": "debug",
-      "path": "skills/utilities/debug/SKILL.md",
-      "category": "utilities",
-      "description": "Systematically debug an error using hypothesis-driven root cause analysis.",
-      "tags": ["debugging", "errors", "troubleshooting"],
-      "invocation": "both",
-      "arguments": null,
-      "pattern": "task"
-    },
-    {
-      "name": "refactor",
-      "path": "skills/utilities/refactor/SKILL.md",
-      "category": "utilities",
-      "description": "Refactor code for improved readability and maintainability without changing behavior.",
-      "tags": ["refactoring", "cleanup", "quality", "maintainability"],
-      "invocation": "both",
-      "arguments": "[file-path or function-name]",
-      "pattern": "task"
-    },
-    {
-      "name": "security-audit",
-      "path": "skills/utilities/security-audit/SKILL.md",
-      "category": "utilities",
-      "description": "Audit code or a repository for security vulnerabilities including injection, auth, secrets, and dependency CVEs.",
-      "tags": ["security", "audit", "vulnerabilities", "owasp"],
-      "invocation": "both",
-      "arguments": "[file-path or module-name]",
-      "pattern": "isolation"
-    }
-  ],
-  "templates": [
-    {
-      "name": "reference-skill",
-      "path": "templates/reference-skill/SKILL.md",
-      "description": "Template for always-on knowledge skills (standards, style guides, conventions).",
-      "pattern": "reference"
-    },
-    {
-      "name": "task-skill",
-      "path": "templates/task-skill/SKILL.md",
-      "description": "Template for multi-step workflow skills (deployments, code generation, migrations).",
-      "pattern": "task"
-    },
-    {
-      "name": "isolation-skill",
-      "path": "templates/isolation-skill/SKILL.md",
-      "description": "Template for skills that run in an isolated subagent (research, analysis, report generation).",
-      "pattern": "isolation"
-    }
-  ],
-  "categories": {
-    "development": "Skills for software development workflows",
-    "git": "Git and GitHub workflow skills",
-    "documentation": "Code explanation and documentation generation skills",
-    "utilities": "General-purpose utility skills"
+  "owner": {
+    "name": "rushtehrani"
   },
-  "patterns": {
-    "reference": "Always-on knowledge skills that Claude applies automatically based on context",
-    "task": "Step-by-step workflow skills for repeatable actions",
-    "isolation": "Skills that run in a forked subagent with focused, isolated context"
-  }
+  "metadata": {
+    "description": "A curated registry of reusable Claude Code skills for software development teams and agents.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "development-skills",
+      "description": "Skills for software development workflows including issue fixing, code review, and test generation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/development/fix-issue",
+        "./skills/development/code-review",
+        "./skills/development/write-tests"
+      ]
+    },
+    {
+      "name": "git-skills",
+      "description": "Git and GitHub workflow skills for committing and summarizing pull requests",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/git/commit",
+        "./skills/git/pr-summary"
+      ]
+    },
+    {
+      "name": "documentation-skills",
+      "description": "Skills for explaining code and generating documentation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/documentation/explain-code",
+        "./skills/documentation/generate-docs"
+      ]
+    },
+    {
+      "name": "utility-skills",
+      "description": "General-purpose utility skills for debugging, refactoring, and security auditing",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/utilities/debug",
+        "./skills/utilities/refactor",
+        "./skills/utilities/security-audit"
+      ]
+    }
+  ]
 }

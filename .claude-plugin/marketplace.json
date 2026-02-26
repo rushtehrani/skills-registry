@@ -1,0 +1,54 @@
+{
+  "name": "skills-registry",
+  "owner": {
+    "name": "rushtehrani"
+  },
+  "metadata": {
+    "description": "A curated registry of reusable Claude Code skills for software development teams and agents.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "development-skills",
+      "description": "Skills for software development workflows including issue fixing, code review, and test generation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/development/fix-issue",
+        "./skills/development/code-review",
+        "./skills/development/write-tests"
+      ]
+    },
+    {
+      "name": "git-skills",
+      "description": "Git and GitHub workflow skills for committing and summarizing pull requests",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/git/commit",
+        "./skills/git/pr-summary"
+      ]
+    },
+    {
+      "name": "documentation-skills",
+      "description": "Skills for explaining code and generating documentation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/documentation/explain-code",
+        "./skills/documentation/generate-docs"
+      ]
+    },
+    {
+      "name": "utility-skills",
+      "description": "General-purpose utility skills for debugging, refactoring, and security auditing",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/utilities/debug",
+        "./skills/utilities/refactor",
+        "./skills/utilities/security-audit"
+      ]
+    }
+  ]
+}
